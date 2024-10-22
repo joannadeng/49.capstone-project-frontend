@@ -1,0 +1,43 @@
+.loginform {
+    display:flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginform-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+}
+
+.loginform-input{
+    padding: 5px;
+    margin-left:5px;
+    margin-right: 15px;
+    border-radius: 5%;
+    border: 2px solid lightgray;
+    border-radius: 10%;
+}
+
+.loginform-input:hover {
+    border-radius: 10%;
+    border: 3px solid lightblue;
+    
+}
+
+.loginform-btn {
+    padding: 5px;
+    width: 70px;
+    border-radius: 10%;
+    border: 2px solid lightgray
+}
+
+.loginform-btn:hover {
+    border-radius: 10%;
+    border: 3px solid darkgray
+}
+
+

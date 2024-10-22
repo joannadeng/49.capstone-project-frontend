@@ -1,0 +1,18 @@
+
+.Navbar {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right:15%;
+    font-size: larger;
+    background-color: beige;
+    height: 20vh;
+}
+
+ul li {
+    list-style-type: none;
+    line-height: 30px;
+}
+

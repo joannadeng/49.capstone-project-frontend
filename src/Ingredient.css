@@ -1,0 +1,14 @@
+.ingredient{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 2px solid gray;
+    padding: 10px;
+}
+
+.ingredient-item {
+    border:2px solid gray;
+    width:200px;
+    word-wrap: break-word;
+    margin: 5px;
+}

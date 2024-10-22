@@ -1,0 +1,15 @@
+.Categories{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ccc;
+    min-height: 80vh;
+}
+
+
+.Categories-select{
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10%;
+  font-size: large;
+}

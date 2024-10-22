@@ -1,0 +1,43 @@
+.ProfileForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    width: 30%;
+    background-color: rgb(206, 224, 245);
+    margin: 0 auto;
+}
+
+.ProfileForm-body  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+.ProfileForm-input  {
+    margin: 10px;
+    width: 80%;
+    height: 20px;
+    border: 3px solid lightgray;
+    border-radius: 5%;
+}
+
+.ProfileForm-btn {
+    display: flex;
+    margin-top: 10px;
+    height: 25px;
+    font-size: 1rem;
+}
+
+.ProfileForm-input:hover {
+    border-radius: 10%;
+    border: 3px solid lightblue;
+}
+
+.ProfileForm-btn:hover {
+    border-radius: 10%;
+    border: 3px solid darkgray
+}
+

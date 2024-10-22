@@ -1,0 +1,21 @@
+.CreateList {
+    background-color: lightgray;
+    padding-top: 0;
+    min-height: 80vh;
+}
+
+.CreateList h3 {
+    margin-top:0;
+    padding-top: 2rem;
+}
+
+.CreateList-item { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin:8px;
+} 
+
+.CreateList-item-btn {
+    margin-left:15px;
+}

@@ -1,0 +1,41 @@
+
+
+.HomePage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ccc;
+    padding: 15px;
+    min-height: 80vh;
+}
+
+.HomePage-form {
+    font-size: large;
+}
+
+.HomePage-form-input{
+  padding: 5px;
+  margin: 5px;
+  border-radius: 10%;
+}
+
+.HomePage-form-input:hover {
+    border:3px solid  darkblue
+}
+
+.HomePage-form-btn{
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10%;
+}
+
+/* .overlay{
+    opacity:0.8;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+} */
