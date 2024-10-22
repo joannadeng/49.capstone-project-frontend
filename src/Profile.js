@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import CurrentUserContext from "./CurrentUserContext";
 import { useContext } from "react";
+import './Profile.css'
 
 const Profile = () => {
     const currentUser = useContext(CurrentUserContext);
@@ -9,7 +10,7 @@ const Profile = () => {
     
     if(currentUser.isAdmin === true) {
        return (
-       <div>
+       <div className="Profile">
         <ul>
             <li><Link to={`/${userName}/signup`}>Create a user</Link></li>
             <li><Link to={`/${userName}/users`}>Get Users</Link></li>
@@ -22,7 +23,7 @@ const Profile = () => {
        )
     }else if(currentUser){
         return (
-            <div>
+            <div className="Profile">
              <ul>
                  <li><Link to={`/${userName}/profileInfo`}>Edit File</Link></li>
                  <li><Link to={`/${userName}/createRecipe`}>Create Recipe</Link></li>

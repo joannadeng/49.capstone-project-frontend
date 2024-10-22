@@ -1,0 +1,17 @@
+.userList {
+    display: flex;
+    justify-content: center;
+    background-color: #ccc;
+    min-height: 80vh;
+    margin:0 auto;
+}
+
+.userList-user{
+    display: flex;
+    justify-content: center;
+}
+
+.userList-button{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

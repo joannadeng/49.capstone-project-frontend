@@ -1,0 +1,8 @@
+.Profile {
+    display: flex;
+    justify-content: center;
+    background-color: #ccc;
+    min-height: 80vh;
+    margin:0 auto;
+    
+}

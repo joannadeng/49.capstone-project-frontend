@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import CurrentUserContext from "./CurrentUserContext";
 import RecipeApi from "./RecipeApi";
-import { Link, useNavigate } from  "react-router-dom"
+import { Link, useNavigate } from  "react-router-dom";
+import './UserList.css'
 
 const UserList = ({logout}) => {
     const currentUser = useContext(CurrentUserContext);
     const [userList, setUserList] = useState([]);
-    const navigate = useNavigate()
-    
+    const navigate = useNavigate(); 
      
     async function getUserList() {   
             let users = await RecipeApi.getUsers()
@@ -24,9 +24,7 @@ const UserList = ({logout}) => {
             
         }
         getUserList()
-    }
-
-    
+    } 
 
     useEffect(()=>{
         if(currentUser.isAdmin === true ){
@@ -34,16 +32,13 @@ const UserList = ({logout}) => {
         }  
     },[currentUser])
 
-  
-
-
     return (
-        <div>
-        <ul>
+        <div className="userList">
+        <ul className="userList-ul">
             {userList.map((user,idx) => (
-                <div>
+                <div className="userList-user">
                 <li key={idx}><Link to={`/${currentUser.username}/users/${user.username}`}>{user.username}</Link></li>
-                <button onClick={()=>{deleteUser(user.username)}}>
+                <button  className="userList-button"  onClick={()=>{deleteUser(user.username)}}>
                     Delete
                 </button>
                 </div>
