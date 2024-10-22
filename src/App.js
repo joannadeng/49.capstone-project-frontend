@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route, BrowserRouter} from "react-router-dom"
 import CurrentUserContext from './CurrentUserContext';
 import useLocalStorageState from './useLocalStorageState';
 import RecipeApi from './RecipeApi';
@@ -38,6 +38,10 @@ function App() {
 
   async function login(data) {
     let res = await RecipeApi.login(data);
+    if(!res){
+      alert(`Error:Invalid username/password`);
+      return;
+    }
     setToken(res.token);
   }
 
@@ -73,6 +77,8 @@ function App() {
           <Route path='/' element={<HomePage />}/>
           <Route path='/login' element={<LoginForm login={login}/>} />
           <Route path='/signup' element={<SignupForm signup={signup}/>} />
+          <Route path='/:admin/signup' element={<SignupForm signup={signup}/>} />
+          <Route path='/:admin/signup' element={<SignupForm signup={signup}/>} />
           <Route path='/categories'  element={<Categories />} />
           <Route path='/categories/:category' element={<Category />} />
           <Route path='/ingredient/:ingredient' element={<Ingredient />} />
@@ -85,6 +91,8 @@ function App() {
           <Route path = '/:username/profileInfo' element={<ProfileForm setCurrentUser={setCurrentUser} />}></Route>
           <Route path = '/:admin/users/:username/profileInfo' element={<ProfileForm setCurrentUser={setCurrentUser} />}></Route>
           <Route path = '/:username/saveList' element={<SaveList />}></Route>
+          <Route path = '/:admin/users/:username/saveList' element={<SaveList />}></Route>
+          <Route path = '/:admin/users/:username/createList' element={<CreateList />}></Route>
           <Route path = '/:username/createList' element={<CreateList />}></Route>
           <Route path = '/:username/createRecipe' element={<CreateForm />}></Route>
           <Route path = '/:username/createRecipe/:id' element={<SingleCreateRecipe />}></Route>

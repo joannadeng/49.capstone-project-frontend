@@ -11,6 +11,7 @@ const Profile = () => {
        return (
        <div>
         <ul>
+            <li><Link to={`/${userName}/signup`}>Create a user</Link></li>
             <li><Link to={`/${userName}/users`}>Get Users</Link></li>
             <li><Link to={`/${userName}/profileInfo`}>Edit File</Link></li>
             <li><Link to={`/${userName}/createRecipe`}>Create Recipe</Link></li>

@@ -2,7 +2,7 @@ import React,{ useContext } from 'react';
 import CurrentUserContext from "./CurrentUserContext";
 import RecipeApi from './RecipeApi';
 import './ProfileForm.css'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import useCheckUser from './useCheckUser';
 
 

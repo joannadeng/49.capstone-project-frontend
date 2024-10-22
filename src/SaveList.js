@@ -7,10 +7,9 @@ import './SaveList.css'
 const SaveList = () => {
     const currentUser = useContext(CurrentUserContext);
     const [res, setRes] = useState([]);
-    const [isValid, setIsValid] = useState(true)
-  
-    
-
+    const [isValid, setIsValid] = useState(true);
+    const params = useParams();
+    const userName = params.username;
 
     async function getSaveList(user) {
          let result = await RecipeApi.savedRecipeList(user);
@@ -19,20 +18,29 @@ const SaveList = () => {
           if(result.length === 0) {
             setIsValid(false)
           }
-        }
+    }
 
-    async function deleteRecipe(username, recipeId) {
-        if(currentUser){
-            await RecipeApi.deleteSave(username, recipeId);
-        }
-        await getSaveList(currentUser.username);
+    async function deleteRecipe(recipeId) {
+        if(currentUser.username === userName){
+            await RecipeApi.deleteSave(currentUser.username, recipeId);
+            await getSaveList(currentUser.username);
+        }else if(currentUser.isAdmin === true){
+            await RecipeApi.deleteSave(userName, recipeId);
+            await getSaveList(userName);
+        }else{
+            alert('Please login or register first')
+        } 
     }
 
     useEffect(()=>{
-        if(currentUser){
+        if(currentUser.username === userName){
             getSaveList(currentUser.username);  
-        }     
-    },[JSON.stringify(res),currentUser])
+        }else if(currentUser.isAdmin === true){
+            getSaveList(userName)
+        }else{
+            alert('Please login or register first')
+        }    
+    },[JSON.stringify(res),currentUser,userName])
 
         return (
         <div className='SaveList'>
@@ -40,7 +48,7 @@ const SaveList = () => {
         {isValid ? ((res.map((obj,idx) => (
             <div key={idx} className='SaveList-item'>
                <span className='SaveList-item-span'> <Link to={`/meals/${obj.id}`}>{obj.name}</Link></span>
-               <button className='SaveList-item-btn' onClick={() => deleteRecipe(currentUser.username, obj.id)}>Delete</button>
+               <button className='SaveList-item-btn' onClick={() => deleteRecipe(obj.id)}>Delete</button>
             </div>
         )))) :  (<div>
                 <p>Oops, you haven't saved any recipe yet, <Link to='/'>go browse~~</Link></p>

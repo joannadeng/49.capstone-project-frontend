@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useFormik } from "formik";
 import './SignupForm.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import CurrentUserContext from './CurrentUserContext';
+import RecipeApi from './RecipeApi';
 
 const validate = values => {
     const errors = {} ;
@@ -28,8 +30,22 @@ const validate = values => {
     return errors;
 }
 
+
+
 const SignupForm = ({signup}) => {
+  const currentUser = useContext(CurrentUserContext);
+  const params = useParams();
+  const admin = params.admin;
   const navigate = useNavigate();
+
+async function signupUser(data){
+  if(currentUser.isAdmin === true && currentUser.username === admin){
+    await RecipeApi.adminSignup({...data, isAdmin: false})
+  }else{
+    await signup(data)
+  }
+}
+
     const formik = useFormik({
         initialValues: {
             username:'',
@@ -41,7 +57,7 @@ const SignupForm = ({signup}) => {
         validate,
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
-            signup(values);
+            signupUser(values)
             navigate('/')
         },
     });

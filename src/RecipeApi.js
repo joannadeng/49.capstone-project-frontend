@@ -31,6 +31,13 @@ class RecipeApi {
         return res;
     }
 
+
+    // admin creates a user
+    static async adminSignup(data) {
+        let res = await this.request(`users/`,data,'post')
+        return res;
+    }
+
     // login route
     static async login(data){
         let res = await this.request('auth/token',data,'post')
@@ -153,7 +160,6 @@ class RecipeApi {
     let res = await this.request(`users/${username}`,data,'patch')
     return res.user
    }
-
 
 }
 

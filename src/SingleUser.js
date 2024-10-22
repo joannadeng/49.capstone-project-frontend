@@ -16,8 +16,8 @@ const SingleUser = () => {
         <>
         <ul>
             <li><Link to={`/${currentUser.username}/users/${checkUser.username}/profileInfo`}>{checkUser.username}'s profile</Link></li>
-            <li><Link to={`/${currentUser.username}/users/${checkUser.username}/profileInfo`}>{checkUser.username}'s SavedRecipeList</Link></li>
-            <li><Link to={`/${currentUser.username}/users/${checkUser.username}/profileInfo`}>{checkUser.username}'s CreateRecipeList</Link></li>
+            <li><Link to={`/${currentUser.username}/users/${checkUser.username}/saveList`}>{checkUser.username}'s SavedRecipeList</Link></li>
+            <li><Link to={`/${currentUser.username}/users/${checkUser.username}/createList`}>{checkUser.username}'s CreateRecipeList</Link></li>
         </ul>
         </>
     )
