@@ -32,8 +32,13 @@ function App() {
   const [token, setToken] = useLocalStorageState("token", '');
 
   async function signup(data) {
-    let res = await RecipeApi.signup(data);
+    try{
+      let res = await RecipeApi.signup(data);
     setToken(res.token);
+    }catch(err){
+      alert(err.stack)
+    }
+    
   }
 
   async function login(data) {
@@ -77,7 +82,6 @@ function App() {
           <Route path='/' element={<HomePage />}/>
           <Route path='/login' element={<LoginForm login={login}/>} />
           <Route path='/signup' element={<SignupForm signup={signup}/>} />
-          <Route path='/:admin/signup' element={<SignupForm signup={signup}/>} />
           <Route path='/:admin/signup' element={<SignupForm signup={signup}/>} />
           <Route path='/categories'  element={<Categories />} />
           <Route path='/categories/:category' element={<Category />} />

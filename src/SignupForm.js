@@ -39,11 +39,19 @@ const SignupForm = ({signup}) => {
   const navigate = useNavigate();
 
 async function signupUser(data){
-  if(currentUser.isAdmin === true && currentUser.username === admin){
-    await RecipeApi.adminSignup({...data, isAdmin: false})
-  }else{
-    await signup(data)
+  try{
+    if(currentUser.isAdmin === true && currentUser.username === admin){
+      await RecipeApi.adminSignup({...data, isAdmin: false})
+    }else{
+      await signup(data)
+    }
+    alert(JSON.stringify(formik.values, null, 2));
+    navigate('/')
+  }catch(err){
+    alert(err)
+    navigate(`/${currentUser.username}/signup`)
   }
+  
 }
 
     const formik = useFormik({
@@ -56,9 +64,8 @@ async function signupUser(data){
         },
         validate,
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            // alert(JSON.stringify(values, null, 2));
             signupUser(values)
-            navigate('/')
         },
     });
 

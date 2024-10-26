@@ -25,7 +25,7 @@ const Profile = () => {
         return (
             <div className="Profile">
              <ul>
-                 <li><Link to={`/${userName}/profileInfo`}>Edit File</Link></li>
+                 <li><Link to={`/${userName}/profileInfo`}>Edit Profile</Link></li>
                  <li><Link to={`/${userName}/createRecipe`}>Create Recipe</Link></li>
                  <li><Link to={`/${userName}/saveList`}>Edit Saved recipes</Link></li>
                  <li><Link to={`/${userName}/createList`}>Edit Created recipes</Link></li>
