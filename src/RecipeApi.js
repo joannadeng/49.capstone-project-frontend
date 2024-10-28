@@ -143,6 +143,7 @@ class RecipeApi {
         return res.data.recipe;
     }
 
+   //get single recipe by name 
     static async mealByName(name){
         let res = await axios.get(`${BASE_URL}/recipes/${name}`)
         console.log(res.data.recipe)

@@ -63,8 +63,8 @@ function HomePage({currentMeal,setCurrentMeal}) {
                 {currentMeal && 
                 <ul className="HomePage-randam">
                     <li><span>{currentMeal.strMeal}</span></li>
-                    {/* <li><span>{currentMeal.strArea}</span></li> */}
-                    {/* <li><span>{currentMeal.strCategory}</span></li> */}
+                    <li><span>Area: {currentMeal.strArea}</span></li>
+                    <li><span>Category: {currentMeal.strCategory}</span></li>
                     <li><span>Instruction:</span><ReadMore text={longText} maxLength="500"/></li>
                 </ul>}
             </div>
