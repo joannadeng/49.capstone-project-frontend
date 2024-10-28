@@ -11,6 +11,7 @@ const SingleMeal =() => {
     const [recipe, setRecipe] = useState('')
     const params = useParams();
     const id = params.id;
+    
     const currentUser = useContext(CurrentUserContext);
     const [isLoading, setIsLoading] = useState(true);
     const [saved,setSaved] = useState(false)

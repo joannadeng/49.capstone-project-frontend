@@ -93,6 +93,14 @@ class RecipeApi {
        return res.recipe
     }
 
+    //get a random meal
+    static async getRandom(){
+        console.log("1111111")
+        let res = await axios.get(`${BASE_URL}/recipes/random`)
+        console.log(res)
+        return res.data.recipe.meal
+    }
+
     // get categories array 
     static async categories(){
         let res = await axios.get(`${BASE_URL}/recipes/categories`)
@@ -135,6 +143,12 @@ class RecipeApi {
         return res.data.recipe;
     }
 
+    static async mealByName(name){
+        let res = await axios.get(`${BASE_URL}/recipes/${name}`)
+        console.log(res.data.recipe)
+        return res.data.recipe;
+    }
+
     // get single user info
     static async getUser(username) {
         let res = await this.request(`users/${username}`);
@@ -150,7 +164,6 @@ class RecipeApi {
     // get user array info
     static async getUsers() {
         let res = await this.request(`users/`);
-        console.log("1111")
         console.log("users:",res.users);
         return res.users;
     }

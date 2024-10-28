@@ -26,10 +26,12 @@ import UserList from './UserList';
 import SingleUser from './SingleUser';
 
 
+
 function App() {
 
   const [currentUser, setCurrentUser] = useState('');
   const [token, setToken] = useLocalStorageState("token", '');
+  const [currentMeal, setCurrentMeal] = useState('')
 
   async function signup(data) {
     try{
@@ -38,16 +40,16 @@ function App() {
     }catch(err){
       alert(err.stack)
     }
-    
   }
 
   async function login(data) {
-    let res = await RecipeApi.login(data);
-    if(!res){
-      alert(`Error:Invalid username/password`);
-      return;
+    try{
+      let res = await RecipeApi.login(data);
+      setToken(res.token);
+    }catch(e){
+      alert(`Invalid username or password`);
     }
-    setToken(res.token);
+   
   }
 
   async function logout() {
@@ -59,13 +61,10 @@ function App() {
     async function getCurrentUser() {
       if(token){
       let user = jwtDecode(token);
-      try{
         let res = await RecipeApi.getUser(user.username)
         console.log(res)
         setCurrentUser(res);
-      }catch(e){
-        alert("Unauthorized, please login or register first")
-      }
+   
       };
     };
     getCurrentUser();
@@ -77,9 +76,9 @@ function App() {
     <div className="App">
      <BrowserRouter>
       <CurrentUserContext.Provider value={currentUser}>
-        <NavBar logout={logout}/>
+        <NavBar logout={logout} setCurrentMeal={setCurrentMeal}/>
           <Routes>
-          <Route path='/' element={<HomePage />}/>
+          <Route path='/' element={<HomePage currentMeal={currentMeal} setCurrentMeal={setCurrentMeal}/>}/>
           <Route path='/login' element={<LoginForm login={login}/>} />
           <Route path='/signup' element={<SignupForm signup={signup}/>} />
           <Route path='/:admin/signup' element={<SignupForm signup={signup}/>} />
