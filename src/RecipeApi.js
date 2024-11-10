@@ -52,10 +52,10 @@ class RecipeApi {
     }
 
     // delete a saved recipe
-    static async deleteSave(username,recipeId) {
-        await this.request(`users/${username}/savedRecipe/${recipeId}`,{},"delete")
-        console.log("Delete:",recipeId)
-        return {delete:recipeId}
+    static async deleteSave(username,id) {
+        await this.request(`users/${username}/savedRecipe/${id}`,{},"delete")
+        console.log("Delete:",id)
+        return {delete:id}
     }
 
     // get an array of saved recipes
@@ -143,12 +143,6 @@ class RecipeApi {
         return res.data.recipe;
     }
 
-   //get single recipe by name 
-    static async mealByName(name){
-        let res = await axios.get(`${BASE_URL}/recipes/${name}`)
-        console.log(res.data.recipe)
-        return res.data.recipe;
-    }
 
     // get single user info
     static async getUser(username) {

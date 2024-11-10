@@ -10,7 +10,7 @@ import './SingleMeal.css'
 const SingleMeal =() => {
     const [recipe, setRecipe] = useState('')
     const params = useParams();
-    const id = params.id;
+    const recipeId = params.id;
     
     const currentUser = useContext(CurrentUserContext);
     const [isLoading, setIsLoading] = useState(true);
@@ -20,26 +20,42 @@ const SingleMeal =() => {
     
     useEffect(()=> {
         async function getRecipe() {
-           const res = await RecipeApi.meal(id);
+           const res = await RecipeApi.meal(recipeId);
            setRecipe(res)
            setIsLoading(false)
         }
        getRecipe();
-    },[id])
+    },[recipeId])
 
-    async function deleteRecipe(username, recipeId) {
+    async function deleteRecipe(username, id) {
         if(currentUser){
-            await RecipeApi.deleteSave(username, recipeId);
+            await RecipeApi.deleteSave(username, id);
+        }
+    }
+
+    async function findSavedRecipe(recipeId) {
+        if(currentUser){
+            let result = await RecipeApi.savedRecipeList(currentUser.username);
+            console.log("result:",result)
+            let recipe = result.find(res => {
+               return +res.recipeid === +recipeId
+            })  
+            if (recipe) {
+                console.log("recipe:",recipe.id)
+                return recipe.id
+            }
         }
     }
 
     async function save(){
         if(currentUser){
             if(saved) {
-               deleteRecipe(currentUser.username,id)
+               let id = await findSavedRecipe(recipeId);
+               deleteRecipe(currentUser.username,id);
                setSaved(false)
             }else {
-               await RecipeApi.saveRecipe(currentUser.username,id);
+               await RecipeApi.saveRecipe(currentUser.username,recipeId);
+               
                setSaved(true)
             }
         }else{
@@ -47,12 +63,16 @@ const SingleMeal =() => {
         }
     }
 
-    
+    useEffect(() => {
+        if(currentUser){
+            checkIfSaved()
+        }
+    },[currentUser,recipe,save])
 
     async function checkIfSaved() {
         let result = await RecipeApi.savedRecipeList(currentUser.username);
-        let idList = result.map(obj => obj.id)
-        if(idList.includes(+id)){
+        let idList = await result.map(obj => obj.recipeid)
+        if(idList.includes(+recipeId)){
             setSaved(true)
         }else {
             setSaved(false)
@@ -60,11 +80,7 @@ const SingleMeal =() => {
         return saved;
     }
 
-    useEffect(() => {
-        if(currentUser){
-            checkIfSaved()
-        }
-    },[currentUser])
+    
     
 
     const longText = recipe.instruction+'';
@@ -76,7 +92,8 @@ const SingleMeal =() => {
             <div className="SingleMeal-detail">
                 <img src={recipe.image}  />
                 <h3>{recipe.name}</h3>
-                <button onClick={save} > {saved ? blackStar : whiteStar}</button>
+                <button onClick={save} > 
+                    {saved ? blackStar : whiteStar}</button>
                 <p><span>Instruction:</span><ReadMore text={longText} maxLength="200"/></p>   
             </div>}
         </div>

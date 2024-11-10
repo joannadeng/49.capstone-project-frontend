@@ -20,12 +20,12 @@ const SaveList = () => {
           }
     }
 
-    async function deleteRecipe(recipeId) {
+    async function deleteRecipe(id) {
         if(currentUser.username === userName){
-            await RecipeApi.deleteSave(currentUser.username, recipeId);
+            await RecipeApi.deleteSave(currentUser.username, id);
             await getSaveList(currentUser.username);
         }else if(currentUser.isAdmin === true){
-            await RecipeApi.deleteSave(userName, recipeId);
+            await RecipeApi.deleteSave(userName, id);
             await getSaveList(userName);
         }else{
             alert('Please login or register first')
@@ -47,7 +47,7 @@ const SaveList = () => {
             <h3>Let's see what you like~~~</h3>
         {isValid ? ((res.map((obj,idx) => (
             <div key={idx} className='SaveList-item'>
-               <span className='SaveList-item-span'> <Link to={`/meals/${obj.id}`}>{obj.name}</Link></span>
+               <span className='SaveList-item-span'> <Link to={`/meals/${obj.recipeid}`}>{obj.name}</Link></span>
                <button className='SaveList-item-btn' onClick={() => deleteRecipe(obj.id)}>Delete</button>
             </div>
         )))) :  (<div>
