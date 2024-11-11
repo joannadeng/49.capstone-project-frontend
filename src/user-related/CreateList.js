@@ -6,14 +6,14 @@ import '../styling/CreateList.css'
 
 const CreateList = () => {
     const currentUser = useContext(CurrentUserContext);
-    const [recipes, setRecipes] = useState([]);
+    const [createdRecipes, setCreatedRecipes] = useState([]);
     const [isValid, setIsValid] = useState(true);
     const params = useParams();
     const userName = params.username;
 
     async function getCreateList(username) {
         let recipes = await RecipeApi.createRecipeList(username);
-        setRecipes(recipes)
+        setCreatedRecipes(recipes)
         if(recipes.length === 0){
             setIsValid(!isValid)
         }
@@ -39,14 +39,14 @@ const CreateList = () => {
         }else{
             alert('Please login or register first')
         }    
-    },[JSON.stringify(recipes),currentUser,userName])
+    },[currentUser,userName])
 
     
 
         return (
         <div className='CreateList'>
             <h3>Let's see what you made~~~<Link to={`/${currentUser.username}/createRecipe`}>create more</Link></h3>
-        {isValid ? (recipes.map((obj,idx) => (
+        {isValid ? (createdRecipes.map((obj,idx) => (
             <li key={idx} className='CreateList-item'>
                 
                <span className='CreateList-item-span'> <Link to={`/${currentUser.username}/createRecipe/${obj.id}`}>{obj.name}</Link></span>

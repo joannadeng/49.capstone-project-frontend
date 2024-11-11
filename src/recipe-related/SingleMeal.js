@@ -67,7 +67,7 @@ const SingleMeal =() => {
         if(currentUser){
             checkIfSaved()
         }
-    },[currentUser,recipe,save])
+    },[currentUser,recipeId])
 
     async function checkIfSaved() {
         let result = await RecipeApi.savedRecipeList(currentUser.username);
@@ -90,7 +90,7 @@ const SingleMeal =() => {
         {isLoading && <Loading />}
         {!isLoading && 
             <div className="SingleMeal-detail">
-                <img src={recipe.image}  />
+                <img src={recipe.image}  alt=''/>
                 <h3>{recipe.name}</h3>
                 <button onClick={save} > 
                     {saved ? blackStar : whiteStar}</button>

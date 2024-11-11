@@ -40,7 +40,7 @@ const SaveList = () => {
         }else{
             alert('Please login or register first')
         }    
-    },[JSON.stringify(res),currentUser,userName])
+    },[currentUser,userName])
 
         return (
         <div className='SaveList'>

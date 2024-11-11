@@ -23,7 +23,7 @@ const SingleCreateRecipe = () => {
             }
         }
        getRecipe();
-    },[id])
+    },[id,currentUser.username])
 
     async function deleteRecipe(username, recipeId) {
         if(currentUser){

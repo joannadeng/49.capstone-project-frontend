@@ -12,7 +12,7 @@ const useCheckUser = (username) => {
         };
         getUser();
         
-      },[user])
+      },[username])
 
       return [user,setUser]
 }

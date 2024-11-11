@@ -21,12 +21,9 @@ const Categories = () => {
 
       // select functions
       const handleSelectChange = (e) => {
+        navigate(`/categories/${e.target.value}`)
         setValue(e.target.value)
       }
-
-      useEffect(()=>{
-         navigate(`/categories/${value}`)
-      },[value])
 
       
         return (
@@ -42,8 +39,6 @@ const Categories = () => {
                       <option key={idx} value={cate} >{cate}</option>
                     ))}
                   </select>
-                {/* {list.map((cate,idx) =>(
-                <li key={idx}><Link to={`/categories/${cate}`}>{cate}</Link></li>))} */}
                 </div>
               }
         </div>

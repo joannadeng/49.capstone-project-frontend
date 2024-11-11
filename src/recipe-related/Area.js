@@ -21,12 +21,9 @@ const Area = () => {
 
     // select functions
     const handleSelectChange = (e) => {
-      setValue(e.target.value)
+      navigate(`/area/${e.target.value}`)
+      setValue(e.target.value);
     }
-
-    useEffect(()=>{
-       navigate(`/area/${value}`)
-    },[value])
 
       return (
         <div className='Area'>
@@ -41,8 +38,6 @@ const Area = () => {
                       <option key={idx} value={area} >{area}</option>
                     ))}
                   </select>
-                {/* {list.map((area,idx) =>(
-                <li key={idx}><Link to={`/area/${area}`}>{area}</Link></li>))} */}
                 </div>
               }
         </div>
