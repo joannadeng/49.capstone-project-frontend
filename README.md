@@ -69,36 +69,87 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-### App Description
+## Title
 
-This website is for people who want to learn cooking, they can find recipes they are interested from this website and create their own recipes.
+Free recipe
 
-### App Features
+## Description
 
-1.Unregistered users can visit the app;
-2.Unregistered users can check recipes by catogories/area/ingredient, or browser a random recipe
-3.registered users can like/unlike a recipe
-4.registered users can create his/her own recipe
-5.registered users can modify his profile
-6.Admin can create/edit/delete/get users
+This website offers free recipes for people who likes to do cook, users can brower the website without registering, users can search free recipes by selecting categories or area or ingredients; Meanwhile, as a registered user, you can save or unsave a recipe, or create your own recipe.
 
+## Recipe Features
 
-### Technology used in backend
+### Search recipes by categories
 
-1. backend backup by Node Express;
-2. PostgreSQL for database;
-3. JSONschema to validate data;
-4. JWT to sign and verify users;
-5. use jest and supertest to test routes and model;
+Users can find recipes by selecting categories, such as beef, chicken, breakfast, dessert etc.
+This feature is implemented by selecting a category option from a categories select
 
+### Search recipes by area
 
-### Technology used in frontend
-1. frontend is composed of react components;
-2. frontend used all sorts of react hooks, useState, useNavigate, useContact etc
-3. app is supported by Routes, Route, BrowserRouter from react-router-dom;
-4. app uses by all kinds of form components, which is backup by external library formilk;
+Users can find recipes by selecting area, such as American, British, Chinese etc.
+This feature is implement by selecting an area option from an area select
 
+### Search recipes by ingredients
 
-### Run tests
-npm test 
-npm test filename  
+Users can manually enter a main ingredient and search the recipes that includes this ingredient
+
+The above three searching methods cover all recipes from API, they take care of different preferences.
+Users have access to all searching routes without registering.
+
+## User Features
+
+### Save a recipe
+
+A login user can save a recipe in his/her profile for future reference
+
+### Create a recipe
+
+A login user can create a recipe and save in his/her profile
+
+### Edit profile
+A registered user can edit his/her own profile while logined, including saving/creating/deleting a recipe
+
+This feature benefits users in a way to build and manage their own recipe library.
+
+## Running Test
+
+Tests are written using Jest, so far this app includes backend test, which are store in models folder and routes folder in github backend repo [https://github.com/joannadeng/49.capstone-project-backend]
+
+`npm run test`
+
+## Standard User Flow
+
+### Regular user
+
+When open the website, click on the signup button on top of the homepage and finish the registeration. 
+After successfully registered/logined, feel free to explore the app, user has access to all features you can see from website.
+
+### Admin
+
+Except for the regular user features, Admin can manage users by editing user's profile, or deleting a user in Admin's profile.
+
+## Technology Stack
+
+### Backend
+
+Node Express
+PostgreSQL
+pg
+Jsonschema
+Jsonwebtoken
+axios
+bcrypt
+Jest
+request
+
+### Frontend
+
+Creat React App
+axios
+formik
+jwt-decode
+react
+react-dom
+react-router-dom
+react-scripts
+CSS
