@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import CurrentUserContext from "./CurrentUserContext";
-import RecipeApi from "./RecipeApi";
+import CurrentUserContext from "../useContext/CurrentUserContext";
+import RecipeApi from "../api/RecipeApi";
 import { Link, useNavigate } from  "react-router-dom";
-import './UserList.css'
+import '../styling/UserList.css'
 
 const UserList = ({logout}) => {
     const currentUser = useContext(CurrentUserContext);

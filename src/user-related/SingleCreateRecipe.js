@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext} from "react";
 import { useParams,useNavigate } from "react-router-dom";
-import RecipeApi from "./RecipeApi";
-import CurrentUserContext from "./CurrentUserContext";
-import ReadMore from "./ReadMore";
-import Loading from './Loading';
+import RecipeApi from "../api/RecipeApi";
+import CurrentUserContext from "../useContext/CurrentUserContext";
+import ReadMore from "../helpers/ReadMore";
+import Loading from '../helpers/Loading';
 
 const SingleCreateRecipe = () => {
     const [recipe, setRecipe] = useState('')

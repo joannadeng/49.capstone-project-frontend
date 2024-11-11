@@ -1,9 +1,9 @@
 import React,{ useContext } from 'react';
-import CurrentUserContext from "./CurrentUserContext";
-import RecipeApi from './RecipeApi';
-import './ProfileForm.css'
+import CurrentUserContext from "../useContext/CurrentUserContext";
+import RecipeApi from '../api/RecipeApi';
+import '../styling/ProfileForm.css'
 import { useParams } from 'react-router-dom';
-import useCheckUser from './useCheckUser';
+import useCheckUser from '../customerHooks/useCheckUser';
 
 
 const ProfileForm = ({setCurrentUser}) => {

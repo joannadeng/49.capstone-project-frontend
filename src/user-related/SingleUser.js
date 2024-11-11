@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import CurrentUserContext from "./CurrentUserContext";
+import CurrentUserContext from "../useContext/CurrentUserContext";
 
-import useCheckUser from './useCheckUser';
+import useCheckUser from '../customerHooks/useCheckUser';
 
 const SingleUser = () => {
     const currentUser = useContext(CurrentUserContext);
     const params = useParams()
     const userName = params.username;
-    const [checkUser, setCheckUser] = useCheckUser(userName)
+    const [checkUser] = useCheckUser(userName)
 
     
 

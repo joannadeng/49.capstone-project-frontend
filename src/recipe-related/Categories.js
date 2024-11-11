@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react';
-import RecipeApi from './RecipeApi';
-import { Link, useNavigate} from "react-router-dom";
-import Loading from './Loading';
-import './Categories.css'
+import RecipeApi from '../api/RecipeApi';
+import { useNavigate} from "react-router-dom";
+import Loading from '../helpers/Loading';
+import '../styling/Categories.css'
 
 const Categories = () => {
     const [list, setList] = useState([]);

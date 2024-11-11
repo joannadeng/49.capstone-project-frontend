@@ -1,8 +1,8 @@
 import { useParams,Link } from "react-router-dom";
 import {useEffect, useState} from "react"
-import RecipeApi from "./RecipeApi";
-import Loading from './Loading';
-import './Category.css'
+import RecipeApi from "../api/RecipeApi";
+import Loading from '../helpers/Loading';
+import '../styling/Category.css'
 
 const Category = () => {
    

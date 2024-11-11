@@ -1,8 +1,8 @@
 import React,{ useContext, useState, useEffect} from 'react';
-import CurrentUserContext from "./CurrentUserContext";
-import RecipeApi from './RecipeApi';
+import CurrentUserContext from "../useContext/CurrentUserContext";
+import RecipeApi from '../api/RecipeApi';
 import { Link, useParams} from "react-router-dom";
-import './SaveList.css'
+import '../styling/SaveList.css'
 
 const SaveList = () => {
     const currentUser = useContext(CurrentUserContext);

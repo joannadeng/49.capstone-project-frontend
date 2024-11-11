@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from "react";
-import RecipeApi from "./RecipeApi";
+import RecipeApi from "../api/RecipeApi";
 
 const useCheckUser = (username) => {
     const [user,setUser] = useState('');
@@ -12,7 +12,7 @@ const useCheckUser = (username) => {
         };
         getUser();
         
-      },[])
+      },[user])
 
       return [user,setUser]
 }

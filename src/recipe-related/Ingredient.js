@@ -1,8 +1,8 @@
 import { useParams,Link,useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react"
-import RecipeApi from "./RecipeApi";
-import Loading from './Loading';
-import './Ingredient.css'
+import RecipeApi from "../api/RecipeApi";
+import Loading from '../helpers/Loading';
+import '../styling/Ingredient.css';
 
 const Ingredient = () => {
    
@@ -16,8 +16,6 @@ const Ingredient = () => {
         async function getIngredient() {
            const res = await RecipeApi.ingredient(ingr);
            if(res === null){
-            // console.log("111")
-            // alert("Oops, don't have recipe for this ingredient right now, maybe you can make one") why it re-render twice?
             navigate('/')
            }
            setRecipes(res)
@@ -28,7 +26,6 @@ const Ingredient = () => {
 
 
     return (
-        <>
         <div>
         {isLoading && <Loading />}
         {!isLoading && 
@@ -41,8 +38,6 @@ const Ingredient = () => {
                ))}
               </div>}
         </div>
-        
-        </>
     )
 }
 

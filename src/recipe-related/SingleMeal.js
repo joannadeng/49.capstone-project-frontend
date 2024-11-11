@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useContext} from "react";
 import { useParams } from "react-router-dom";
-import RecipeApi from "./RecipeApi";
-import CurrentUserContext from "./CurrentUserContext";
-import ReadMore from "./ReadMore";
-import Loading from './Loading';
-import './SingleMeal.css'
+import RecipeApi from "../api/RecipeApi";
+import CurrentUserContext from "../useContext/CurrentUserContext";
+import ReadMore from "../helpers/ReadMore";
+import Loading from '../helpers/Loading';
+import '../styling/SingleMeal.css'
 
 
 const SingleMeal =() => {

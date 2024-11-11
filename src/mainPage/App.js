@@ -1,29 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+
+import '../styling/App.css';
 import { Routes, Route, BrowserRouter} from "react-router-dom"
-import CurrentUserContext from './CurrentUserContext';
-import useLocalStorageState from './useLocalStorageState';
-import RecipeApi from './RecipeApi';
+import CurrentUserContext from '../useContext/CurrentUserContext';
+import useLocalStorageState from '../customerHooks/useLocalStorageState';
+import RecipeApi from '../api/RecipeApi';
 import React,{ useState, useEffect } from 'react';
-import NavBar from './NavBar'
-import HomePage from './HomePage';
-import LoginForm from './LoginForm';
-import SignupForm from './SignupForm';
-import Categories from './Categories';
-import Category from './Category';
-import Area from './Area';
-import SpecificArea from './SpecificArea';
+import NavBar from '../mainPage/NavBar'
+import HomePage from '../mainPage/HomePage';
+import LoginForm from '../user-related/LoginForm';
+import SignupForm from '../user-related/SignupForm';
+import Categories from '../recipe-related/Categories';
+import Category from '../recipe-related/Category';
+import Area from '../recipe-related/Area';
+import SpecificArea from '../recipe-related/SpecificArea';
 import {jwtDecode} from 'jwt-decode'
-import SingleMeal from './SingleMeal';
-import ProfileForm from './ProfileForm';
-import Profile from './Profile';
-import SaveList from './SaveList';
-import CreateList from './CreateList';
-import CreateForm from './CreateForm';
-import SingleCreateRecipe from './SingleCreateRecipe';
-import Ingredient from './Ingredient';
-import UserList from './UserList';
-import SingleUser from './SingleUser';
+import SingleMeal from '../recipe-related/SingleMeal';
+import ProfileForm from '../user-related/ProfileForm';
+import Profile from '../user-related/Profile';
+import SaveList from '../user-related/SaveList';
+import CreateList from '../user-related/CreateList';
+import CreateForm from '../user-related/CreateForm';
+import SingleCreateRecipe from '../user-related/SingleCreateRecipe';
+import Ingredient from '../recipe-related/Ingredient';
+import UserList from '../user-related/UserList';
+import SingleUser from '../user-related/SingleUser';
 
 
 

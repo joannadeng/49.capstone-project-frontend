@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import { useFormik } from "formik";
-import './SignupForm.css'
+import '../styling/SignupForm.css'
 import { useNavigate, useParams } from 'react-router-dom';
-import CurrentUserContext from './CurrentUserContext';
-import RecipeApi from './RecipeApi';
+import CurrentUserContext from '../useContext/CurrentUserContext';
+import RecipeApi from '../api/RecipeApi';
 
 const validate = values => {
     const errors = {} ;

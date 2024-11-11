@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './HomePage.css'
-import RecipeApi from "./RecipeApi";
-import ReadMore from "./ReadMore";
+import '../styling/HomePage.css'
+import RecipeApi from "../api/RecipeApi";
+import ReadMore from "../helpers/ReadMore";
 
 
 function HomePage({currentMeal,setCurrentMeal}) {

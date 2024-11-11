@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormik } from 'formik';
 import { useNavigate } from "react-router-dom";
-import './LoginForm.css'
+import '../styling/LoginForm.css'
 
 const validate = values => {
     const errors = {};

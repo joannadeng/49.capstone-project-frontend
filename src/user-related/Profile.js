@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import CurrentUserContext from "./CurrentUserContext";
+import CurrentUserContext from "../useContext/CurrentUserContext";
 import { useContext } from "react";
-import './Profile.css'
+import '../styling/Profile.css'
 
 const Profile = () => {
     const currentUser = useContext(CurrentUserContext);
